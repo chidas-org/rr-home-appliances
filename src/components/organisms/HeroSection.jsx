@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Button from "@/components/atoms/Button";
 import TrustBadge from "@/components/molecules/TrustBadge";
-import heroBg from "@/images/carousel-1.jpg";
+import heroBg from "/images/carousel-1.jpg";
 
 const HeroSection = ({ onBookService, onCallNow }) => {
   const trustBadges = [

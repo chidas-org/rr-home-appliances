@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import StatCard from "@/components/molecules/StatCard";
-import teamImage from "@/images/team-image.jpg";
+import teamImage from "/images/team-image.jpg";
 const AboutSection = () => {
   const stats = [
     { number: "5+", label: "Years Experience" },

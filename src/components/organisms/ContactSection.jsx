@@ -7,7 +7,7 @@ import Textarea from "@/components/atoms/Textarea";
 import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
 import { leadService } from "@/services/api/leadService";
-import carousel2 from "@/images/carousel-2.jpg";
+// import carousel2 from "@/images/carousel-2.jpg";
 
 
 const ContactSection = ({ selectedService = null }) => {
