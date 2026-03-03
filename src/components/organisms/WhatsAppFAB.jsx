@@ -7,7 +7,7 @@ const WhatsAppFAB = () => {
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent("Hi! I need help with my home appliance. Can you assist me?");
-    const phoneNumber = "15551234567"; // Replace with actual WhatsApp number
+    const phoneNumber = "919511634622"; // Replace with actual WhatsApp number
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 

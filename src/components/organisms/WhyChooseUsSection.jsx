@@ -38,7 +38,7 @@ const WhyChooseUsSection = () => {
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
             Why Choose{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              QuickFix Home?
+              RR HomeTech Services?
             </span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">

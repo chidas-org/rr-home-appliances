@@ -93,7 +93,7 @@ const AdminDashboard = ({ onClose }) => {
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">Admin Dashboard</h1>
-                <p className="text-sm text-gray-500">QuickFix Home</p>
+                <p className="text-sm text-gray-500">RR HomeTech Services</p>
               </div>
             </div>
             <Button onClick={onClose} variant="ghost" icon="X">

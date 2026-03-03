@@ -78,7 +78,7 @@ const ServicesSection = ({ onServiceSelect }) => {
           {services.map((service, index) => (
             <ServiceCard
               key={service.Id}
-              service={service}
+              service={{...service, image: `/src/images/service-${service.Id}.jpg`}}
               onBookNow={handleBookNow}
               delay={index * 0.1}
             />

@@ -80,7 +80,7 @@ const Header = ({ onNavigate }) => {
                 </div>
                 <div>
                   <h1 className="text-lg font-bold text-gray-900">
-                    QuickFix Home
+                    RR HomeTech Services
                   </h1>
                   <p className="text-xs text-gray-500 hidden sm:block">
                     Appliance Service
