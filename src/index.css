@@ -1,0 +1,56 @@
+@import 'react-toastify/dist/ReactToastify.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-primary/90 focus:ring-2 focus:ring-primary/20 focus:outline-none active:scale-95 transition-all duration-normal;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-button font-medium hover:bg-secondary/90 focus:ring-2 focus:ring-secondary/20 focus:outline-none active:scale-95 transition-all duration-normal;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-secondary text-secondary px-6 py-3 rounded-button font-medium hover:bg-secondary hover:text-white focus:ring-2 focus:ring-secondary/20 focus:outline-none active:scale-95 transition-all duration-normal;
+  }
+  
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-input focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-colors duration-normal;
+  }
+  
+  .form-input.error {
+    @apply border-error focus:ring-error/20 focus:border-error;
+  }
+  
+  .card {
+    @apply bg-surface rounded-card shadow-card p-6 transition-all duration-normal;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-card-hover hover:-translate-y-1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

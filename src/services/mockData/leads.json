@@ -1,0 +1,35 @@
+[
+  {
+    "Id": 1,
+    "fullName": "Sarah Johnson",
+    "phone": "+1 (555) 123-4567",
+    "email": "sarah.johnson@email.com",
+    "service": "AC Repair & Installation",
+    "address": "123 Oak Street, Downtown, NY 10001",
+    "message": "My AC unit stopped cooling properly. Need urgent repair.",
+    "submittedAt": "2024-01-15T14:30:00.000Z",
+    "status": "New"
+  },
+  {
+    "Id": 2,
+    "fullName": "Mike Rodriguez",
+    "phone": "+1 (555) 234-5678",
+    "email": "mike.rodriguez@email.com",
+    "service": "Refrigerator Repair",
+    "address": "456 Pine Avenue, Midtown, NY 10002",
+    "message": "Refrigerator not cooling in the freezer section.",
+    "submittedAt": "2024-01-14T10:15:00.000Z",
+    "status": "In Progress"
+  },
+  {
+    "Id": 3,
+    "fullName": "Jennifer Chen",
+    "phone": "+1 (555) 345-6789",
+    "email": "jennifer.chen@email.com",
+    "service": "Washing Machine Repair",
+    "address": "789 Elm Drive, Uptown, NY 10003",
+    "message": "Washing machine making loud noises during spin cycle.",
+    "submittedAt": "2024-01-13T16:45:00.000Z",
+    "status": "Resolved"
+  }
+]

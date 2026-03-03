@@ -1,0 +1,44 @@
+[
+  {
+    "Id": 1,
+    "name": "AC Repair & Installation",
+    "icon": "❄️",
+    "description": "Expert AC repair, installation, and maintenance services for all brands",
+    "category": "Cooling"
+  },
+  {
+    "Id": 2,
+    "name": "Refrigerator Repair",
+    "icon": "🧊",
+    "description": "Complete refrigerator repair services including cooling issues and door problems",
+    "category": "Kitchen"
+  },
+  {
+    "Id": 3,
+    "name": "Washing Machine Repair",
+    "icon": "👔",
+    "description": "Front-load and top-load washing machine repair and maintenance",
+    "category": "Laundry"
+  },
+  {
+    "Id": 4,
+    "name": "Microwave Repair",
+    "icon": "📱",
+    "description": "Microwave oven repair, magnetron replacement, and door fixes",
+    "category": "Kitchen"
+  },
+  {
+    "Id": 5,
+    "name": "TV Repair",
+    "icon": "📺",
+    "description": "LED, LCD, and Smart TV repair services for all screen sizes",
+    "category": "Electronics"
+  },
+  {
+    "Id": 6,
+    "name": "Geyser Repair",
+    "icon": "🚿",
+    "description": "Water heater repair, thermostat replacement, and installation",
+    "category": "Heating"
+  }
+]
