@@ -9,7 +9,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    console.log("handle login button clicked")
+    console.log("handle login button click")
     e.preventDefault();
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
