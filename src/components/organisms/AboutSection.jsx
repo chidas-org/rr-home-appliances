@@ -3,8 +3,8 @@ import StatCard from "@/components/molecules/StatCard";
 import teamImage from "/images/team-image.jpg";
 const AboutSection = () => {
   const stats = [
-    { number: "5+", label: "Years Experience" },
-    { number: "500+", label: "Repairs Done" },
+    { number: "7+", label: "Years Experience" },
+    { number: "5000+", label: "Repairs Done" },
     { number: "24/7", label: "City-Wide Coverage" }
   ];
 

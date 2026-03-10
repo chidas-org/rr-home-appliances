@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
-
+import logoRounded from "/images/logo-rounded.jpg";
 const Footer = ({ onAdminAccess }) => {
   const currentYear = new Date().getFullYear();
 
@@ -56,9 +56,10 @@ const Footer = ({ onAdminAccess }) => {
             className="space-y-4"
           >
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+              {/* <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
                 <ApperIcon name="Wrench" className="w-6 h-6 text-white" />
-              </div>
+              </div> */}
+              <img src={logoRounded} alt="Logo" className="w-16 h-16" />
               <div>
                 <h3 className="text-lg font-bold">RR HomeTech Services</h3>
                 <p className="text-sm text-gray-400">Appliance Service</p>

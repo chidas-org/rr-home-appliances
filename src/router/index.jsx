@@ -2,9 +2,11 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "@/components/organisms/Layout";
 import NotFound from "@/components/pages/NotFound";
-
+import {ProtectedRoute} from "@/components/auth/ProtectedRoute";
+import Loading  from "@/components/ui/Loading"
 const HomePage = lazy(() => import("@/components/pages/HomePage"));
-
+const AdminDashboard = lazy(() => import("@/components/organisms/AdminDashboard"));
+const LoginPage = lazy(() => import("@/components/pages/LoginPage"));
 const Fallback = (
   <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
     <div className="text-center space-y-4">
@@ -19,6 +21,17 @@ const Fallback = (
 
 const mainRoutes = [
   { index: true, path: "", element: <Suspense fallback={Fallback}><HomePage /></Suspense> },
+  { path: "/login", element: <LoginPage /> },
+  { 
+    path: "/admin-portal", 
+    element: (
+      <ProtectedRoute>
+        <Suspense fallback={<Loading />}>
+        <AdminDashboard />
+        </Suspense>
+      </ProtectedRoute>
+    ) 
+  },
   { path: "*", element: <NotFound /> }
 ];
 
