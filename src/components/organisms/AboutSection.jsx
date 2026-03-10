@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import StatCard from "@/components/molecules/StatCard";
-
+import teamImage from "/images/team-image.jpg";
 const AboutSection = () => {
   const stats = [
-    { number: "5+", label: "Years Experience" },
-    { number: "500+", label: "Repairs Done" },
+    { number: "7+", label: "Years Experience" },
+    { number: "5000+", label: "Repairs Done" },
     { number: "24/7", label: "City-Wide Coverage" }
   ];
 
@@ -24,11 +24,11 @@ const AboutSection = () => {
               <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-6">
                 About{" "}
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  QuickFix Home
+                  RR HomeTech Services
                 </span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                With over 5 years of experience in home appliance repair, QuickFix Home has become 
+                With over 5 years of experience in home appliance repair, RR HomeTech Services has become 
                 the trusted choice for homeowners across the city. Our team of certified technicians 
                 specializes in repairing all major appliance brands with genuine spare parts and 
                 industry-leading warranties.
@@ -59,15 +59,16 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative rounded-card overflow-hidden shadow-card"
           >
+            <img src={teamImage} alt="About Background" className="absolute inset-0 w-full h-full object-cover brightness-50" />
             <div className="relative rounded-card overflow-hidden shadow-card">
               <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
                 <div className="text-center space-y-4">
-                  <div className="w-24 h-24 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+                  {/* <div className="w-24 h-24 mx-auto bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
                     <span className="text-4xl">🔧</span>
-                  </div>
-                  <div className="text-gray-500">
+                  </div> */}
+                  <div className="text-white">
                     Professional Team
                     <br />
                     Expert Technicians
@@ -80,6 +81,7 @@ const AboutSection = () => {
               <div className="absolute bottom-4 left-4 w-6 h-6 bg-accent rounded-full opacity-60" />
             </div>
           </motion.div>
+    
         </div>
       </div>
     </section>

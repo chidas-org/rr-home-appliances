@@ -3,11 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/utils/cn";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
+import logoRounded from "/images/logo-rounded.jpg";
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 const Header = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const navigate = useNavigate();
 
   const navItems = [
     { id: "home", label: "Home", href: "#home" },
@@ -59,8 +63,12 @@ const Header = ({ onNavigate }) => {
   };
 
   const handleCallNow = () => {
-    window.location.href = "tel:+15551234567";
+    window.location.href = "tel:+919511634622";
   };
+
+  const handleNavigateAdmin = () => {
+    navigate("/admin-portal")
+  }
 
   return (
     <>
@@ -75,12 +83,12 @@ const Header = ({ onNavigate }) => {
             {/* Logo */}
             <div className="flex items-center">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-                  <ApperIcon name="Wrench" className="w-6 h-6 text-white" />
-                </div>
+                {/* <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center"> */}
+                  <img src={logoRounded} alt="Logo" className="w-16 h-16" />
+                {/* </div> */}
                 <div>
                   <h1 className="text-lg font-bold text-gray-900">
-                    QuickFix Home
+                    RR HomeTech Services
                   </h1>
                   <p className="text-xs text-gray-500 hidden sm:block">
                     Appliance Service
@@ -126,6 +134,16 @@ const Header = ({ onNavigate }) => {
               >
                 Call Now
               </Button>
+              <Button 
+                onClick={handleNavigateAdmin}
+                variant="secondary"
+                size="sm"
+                icon="Users"
+                className="hidden sm:inline-flex"
+              >
+                Admin
+              </Button>
+              
               
               <Button 
                 onClick={handleCallNow}
@@ -134,6 +152,14 @@ const Header = ({ onNavigate }) => {
                 className="sm:hidden"
               >
                 <ApperIcon name="Phone" className="w-4 h-4" />
+              </Button>
+              <Button 
+                onClick={handleNavigateAdmin}
+                variant="secondary"
+                size="sm"
+                className="sm:hidden"
+              >
+                <ApperIcon name="Users" className="w-4 h-4" />
               </Button>
 
               {/* Mobile Menu Button */}

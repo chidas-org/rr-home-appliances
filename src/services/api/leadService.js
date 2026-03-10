@@ -1,83 +1,84 @@
-import mockLeads from "@/services/mockData/leads.json";
+const API_URL = `${import.meta.env.VITE_API_URL}/api/leads`;
 
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-// Load leads from localStorage or use mock data
-const getLeadsFromStorage = () => {
-  try {
-    const stored = localStorage.getItem("quickfix_leads");
-    return stored ? JSON.parse(stored) : [...mockLeads];
-  } catch {
-    return [...mockLeads];
-  }
+/**
+ * Helper to get the token and build the Authorization header
+ */
+const getAuthHeaders = () => {
+  const token = localStorage.getItem("token");
+  return {
+    "Content-Type": "application/json",
+    ...(token ? { "Authorization": `Bearer ${token}` } : {}),
+  };
 };
-
-const saveLeadsToStorage = (leads) => {
-  try {
-    localStorage.setItem("quickfix_leads", JSON.stringify(leads));
-  } catch (error) {
-    console.error("Failed to save leads to storage:", error);
-  }
-};
-
-let leadsData = getLeadsFromStorage();
 
 export const leadService = {
+  // GET all leads (Protected)
   getAll: async () => {
-    await delay(Math.random() * 300 + 200);
-    leadsData = getLeadsFromStorage();
-    return [...leadsData];
+    const response = await fetch(API_URL, {
+      headers: getAuthHeaders(),
+    });
+    if (!response.ok) throw new Error("Failed to fetch leads");
+    return await response.json();
   },
+
+  // GET lead by ID (Protected)
   getById: async (id) => {
-    await delay(Math.random() * 300 + 200);
-    leadsData = getLeadsFromStorage();
-    return leadsData.find(item => item.Id === parseInt(id)) || null;
+    const response = await fetch(`${API_URL}/${id}`, {
+      headers: getAuthHeaders(),
+    });
+    if (!response.ok) return null;
+    return await response.json();
   },
+
+  // CREATE lead (Public - used by Contact Form)
   create: async (data) => {
-    await delay(Math.random() * 500 + 300); // Slightly longer for form submission
-    leadsData = getLeadsFromStorage();
-    const maxId = Math.max(...leadsData.map(i => i.Id), 0);
-    const newItem = { 
-      ...data, 
-      Id: maxId + 1,
-      submittedAt: new Date().toISOString(),
-      status: "New"
-    };
-    leadsData.push(newItem);
-    saveLeadsToStorage(leadsData);
-    return { ...newItem };
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) throw new Error("Failed to submit lead");
+    return await response.json();
   },
+
+  // UPDATE lead (Protected)
   update: async (id, data) => {
-    await delay(Math.random() * 300 + 200);
-    leadsData = getLeadsFromStorage();
-    const idx = leadsData.findIndex(i => i.Id === parseInt(id));
-    if (idx === -1) throw new Error("Not found");
-    leadsData[idx] = { ...leadsData[idx], ...data };
-    saveLeadsToStorage(leadsData);
-    return { ...leadsData[idx] };
+    console.log("data",data)
+    console.log("id",id)
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "PATCH",
+      headers: getAuthHeaders(),
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) throw new Error("Failed to update lead");
+    return await response.json();
   },
+
+  // DELETE lead (Protected)
   delete: async (id) => {
-    await delay(Math.random() * 300 + 200);
-    leadsData = getLeadsFromStorage();
-    const idx = leadsData.findIndex(i => i.Id === parseInt(id));
-    if (idx === -1) throw new Error("Not found");
-    leadsData.splice(idx, 1);
-    saveLeadsToStorage(leadsData);
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "DELETE",
+      headers: getAuthHeaders(),
+    });
+    if (!response.ok) throw new Error("Failed to delete lead");
     return true;
   },
+
+  // GET stats (Protected)
   getStats: async () => {
-    await delay(Math.random() * 200 + 100);
-    leadsData = getLeadsFromStorage();
-    const totalLeads = leadsData.length;
-    const newLeads = leadsData.filter(lead => lead.status === "New").length;
-    const inProgressLeads = leadsData.filter(lead => lead.status === "In Progress").length;
-    const resolvedLeads = leadsData.filter(lead => lead.status === "Resolved").length;
+    const response = await fetch(API_URL, {
+      headers: getAuthHeaders(),
+    });
+    if (!response.ok) throw new Error("Failed to fetch stats");
     
+    const leads = await response.json();
+    
+    // We calculate stats on the frontend to avoid creating a separate backend endpoint
     return {
-      totalLeads,
-      newLeads,
-      inProgressLeads,
-      resolvedLeads
+      totalLeads: leads.length,
+      newLeads: leads.filter(lead => lead.status === "New").length,
+      inProgressLeads: leads.filter(lead => lead.status === "In Progress").length,
+      resolvedLeads: leads.filter(lead => lead.status === "Resolved").length
     };
   }
 };

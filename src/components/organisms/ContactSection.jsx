@@ -7,6 +7,8 @@ import Textarea from "@/components/atoms/Textarea";
 import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
 import { leadService } from "@/services/api/leadService";
+// import carousel2 from "@/images/carousel-2.jpg";
+
 
 const ContactSection = ({ selectedService = null }) => {
   const [formData, setFormData] = useState({
@@ -69,6 +71,8 @@ if (!formData.phone.trim()) {
   };
 
   const handleSubmit = async (e) => {
+    console.log(formData);
+    
     e.preventDefault();
     
     if (!validateForm()) {
@@ -112,6 +116,7 @@ if (!formData.phone.trim()) {
 
   return (
     <section id="contact" className="py-20 bg-background">
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -158,7 +163,7 @@ if (!formData.phone.trim()) {
                     value={formData.phone}
                     onChange={(e) => handleInputChange("phone", e.target.value)}
                     error={errors.phone}
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="9876543210"
                   />
                 </div>
 
@@ -234,7 +239,7 @@ if (!formData.phone.trim()) {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Call Us</p>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">+91 9511634622</p>
                   </div>
                 </div>
 
@@ -244,7 +249,7 @@ if (!formData.phone.trim()) {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Email Us</p>
-                    <p className="text-gray-600">info@quickfixhome.com</p>
+                    <p className="text-gray-600">rrhometechservices@gmail.com</p>
                   </div>
                 </div>
 
@@ -254,7 +259,7 @@ if (!formData.phone.trim()) {
                   </div>
                   <div>
                     <p className="font-medium text-gray-900">Service Area</p>
-                    <p className="text-gray-600">Downtown, Midtown, Uptown<br />New York, NY</p>
+                    <p className="text-gray-600">Nashik, Maharashtra</p>
                   </div>
                 </div>
 
@@ -273,14 +278,14 @@ if (!formData.phone.trim()) {
             {/* Map */}
             <div className="card p-0 overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34194156103!2d-74.03927096447748!3d40.759040329405195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258fce8d7b7e1%3A0xa9fb8b4b2c5d4c43!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119981.2641509121!2d73.72147883584852!3d19.99110531818274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddee45b69917d3%3A0xcb07845d9d28d15c!2sNashik%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="QuickFix Home Service Area"
+                title="RR HomeTech Services Service Area in Nashik"
               />
             </div>
           </motion.div>

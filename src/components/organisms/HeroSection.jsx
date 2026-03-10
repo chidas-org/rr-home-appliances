@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Button from "@/components/atoms/Button";
 import TrustBadge from "@/components/molecules/TrustBadge";
+import heroBg from "/images/carousel-1.jpg";
 
 const HeroSection = ({ onBookService, onCallNow }) => {
   const trustBadges = [
@@ -27,7 +28,7 @@ const HeroSection = ({ onBookService, onCallNow }) => {
   };
 
   const handleCallNow = () => {
-    window.location.href = "tel:+15551234567";
+    window.location.href = "tel:+919511634622";
     if (onCallNow) {
       onCallNow();
     }
@@ -36,8 +37,9 @@ const HeroSection = ({ onBookService, onCallNow }) => {
   return (
     <section 
       id="home"
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-accent overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br bg-slate-500  overflow-hidden"
     >
+      <img src={heroBg} alt="Hero Background" className="absolute inset-0 w-full h-full object-cover brightness-50" />
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-float" />
@@ -113,19 +115,7 @@ const HeroSection = ({ onBookService, onCallNow }) => {
         </motion.div>
       </div>
 
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg 
-          viewBox="0 0 1200 120" 
-          preserveAspectRatio="none" 
-          className="w-full h-12 sm:h-16 lg:h-20 text-background"
-        >
-          <path 
-            d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z" 
-            fill="currentColor"
-          />
-        </svg>
-      </div>
+      
     </section>
   );
 };
